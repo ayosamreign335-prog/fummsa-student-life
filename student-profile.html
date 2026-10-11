@@ -1,0 +1,323 @@
+<!hDOCTYPEtml>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Profile | FUMMSA Student Life</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="profile-page">
+
+        <!-- TOP BRAND -->
+
+        <header class="profile-header">
+
+            <div class="brand-mark">
+                F
+            </div>
+
+            <div class="brand-text">
+                <strong>FUMMSA</strong>
+                <span>STUDENT LIFE</span>
+            </div>
+
+            <button class="notification-button">
+                •••
+            </button>
+
+        </header>
+
+
+        <!-- WELCOME -->
+
+        <section class="profile-intro">
+
+            <p class="profile-eyebrow">
+                STUDENT IDENTITY
+            </p>
+
+            <h1>
+                WELCOME TO
+                <span>YOUR WORLD.</span>
+            </h1>
+
+            <p>
+                Your journey starts here. Explore the world,
+                build your identity, complete missions and
+                earn your place in FUMMSA Student Life.
+            </p>
+
+        </section>
+
+
+        <!-- PROFILE CARD -->
+
+        <section class="student-card">
+
+            <div class="profile-glow"></div>
+
+            <div class="student-top">
+
+                <div class="avatar">
+                    <span>ST</span>
+                </div>
+
+                <div class="student-heading">
+
+                    <small>STUDENT PROFILE</small>
+
+                    <h2 id="profileName">STUDENT NAME</h2>
+<p id="profileUsername">@username</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STUDENT DETAILS -->
+
+            <div class="student-details">
+
+                <div class="detail-box">
+
+                    <span>LEVEL</span>
+
+                    <strong>
+                        100
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span>FACULTY</span>
+
+                    <strong>
+                        FUMMSA
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box wide">
+
+                    <span>PROGRAMME</span>
+
+                    <strong>
+                        YOUR PROGRAMME
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress-section">
+
+                <div class="progress-heading">
+
+                    <span>
+                        LEVEL 1
+                    </span>
+
+                    <strong>
+                        0 / 100 XP
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GAME STATS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card xp">
+
+                <span class="stat-icon">
+                    XP
+                </span>
+
+                <small>
+                    EXPERIENCE
+                </small>
+
+                <strong>
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card coins">
+
+                <span class="stat-icon">
+                    LC
+                </span>
+
+                <small>
+                    LIFECOINS
+                </small>
+
+                <strong>
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card missions">
+
+                <span class="stat-icon">
+                    M
+                </span>
+
+                <small>
+                    MISSIONS
+                </small>
+
+                <strong>
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- MAIN ACTION -->
+
+        <section class="world-entry">
+
+            <div>
+
+                <span>
+                    YOUR ADVENTURE
+                </span>
+
+                <h2>
+                    FUMMSA WORLD
+                </h2>
+
+                <p>
+                    Explore. Learn. Play. Earn.
+                </p>
+
+            </div>
+
+            <button
+                onclick="location.href='fummsa-world.html'"
+            >
+                ENTER WORLD
+                <span>→</span>
+            </button>
+
+        </section>
+
+
+        <!-- QUICK ACCESS -->
+
+        <section class="quick-access">
+
+            <div class="section-title">
+
+                <span>
+                    QUICK ACCESS
+                </span>
+
+                <small>
+                    YOUR JOURNEY
+                </small>
+
+            </div>
+
+
+            <div class="quick-grid">
+
+                <button>
+                    <strong>MISSIONS</strong>
+                    <small>Challenges</small>
+                </button>
+
+                <button>
+                    <strong>EVENTS</strong>
+                    <small>What's happening</small>
+                </button>
+
+                <button>
+                    <strong>LEADERBOARD</strong>
+                    <small>See rankings</small>
+                </button>
+
+                <button>
+                    <strong>SETTINGS</strong>
+                    <small>Your account</small>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <footer class="profile-footer">
+
+            FUMMSA STUDENT LIFE
+
+            <span>•</span>
+
+            YOUR WORLD. YOUR JOURNEY.
+
+        </footer>
+
+    </main>
+<script>
+const student = JSON.parse(
+    localStorage.getItem("fummsaStudent") || "{}"
+);
+
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("profileName").textContent =
+    student.name || params.get("name") || "STUDENT NAME";
+
+document.getElementById("profileUsername").textContent =
+    "@" + (student.username || params.get("username") || "username");
+
+const details = document.querySelectorAll(".detail-box strong");
+
+if (details.length >= 3) {
+    details[0].textContent =
+        student.level || params.get("level") || "100";
+
+    details[1].textContent =
+        student.faculty || params.get("faculty") || "FUMMSA";
+
+    details[2].textContent =
+        student.programme || params.get("programme") || "YOUR PROGRAMME";
+}
+</script>
+</body>
+
+</html>

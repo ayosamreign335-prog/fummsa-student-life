@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FUMMSA Student Life</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="home">
+
+        <div class="logo-box">
+            FUMMSA
+        </div>
+
+        <p class="eyebrow">
+            FUMMSA STUDENT LIFE
+        </p>
+
+        <h1>
+            ENTER YOUR
+            <span>WORLD.</span>
+        </h1>
+
+        <p class="description">
+            Explore, learn, play and experience
+            student life in a whole new way.
+        </p>
+
+        <div class="buttons">
+
+            <button
+                class="main-button"
+                onclick="location.href='create-student.html'"
+            >
+                ENTER FUMMSA WORLD
+            </button>
+
+            <button
+                class="outline-button"
+                onclick="location.href='create-student.html'"
+            >
+                CREATE STUDENT
+            </button>
+
+        </div>
+
+        <div class="features">
+
+            <div class="feature">
+                <strong>EXPLORE</strong>
+                <small>Discover</small>
+            </div>
+
+            <div class="feature">
+                <strong>LEARN</strong>
+                <small>Earn XP</small>
+            </div>
+
+            <div class="feature">
+                <strong>PLAY</strong>
+                <small>Complete</small>
+            </div>
+
+        </div>
+
+        <footer>
+            FUMMSA STUDENT LIFE • VERSION 1.0
+        </footer>
+
+    </main>
+<script>
+
+const savedStudent = localStorage.getItem("fummsaStudent");
+
+if (savedStudent) {
+
+    const student = JSON.parse(savedStudent);
+
+    const name = document.querySelector(".student-heading h2");
+    const username = document.querySelector(".student-heading p");
+
+    const details = document.querySelectorAll(".detail-box strong");
+
+    if (name) {
+        name.textContent = student.name;
+    }
+
+    if (username) {
+        username.textContent = "@" + student.username;
+    }
+
+    if (details[0]) {
+        details[0].textContent =
+            student.level.replace(" Level", "");
+    }
+
+    if (details[1]) {
+        details[1].textContent =
+            student.faculty;
+    }
+
+    if (details[2]) {
+        details[2].textContent =
+            student.programme;
+    }
+
+}
+
+</script>
+</body>
+
+</html>
